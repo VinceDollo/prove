@@ -1,0 +1,155 @@
+name: flutter_starter
+description: A Flutter application starter.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# -----------------------------------------------------------------------------
+# TL;DR: 1.0.1+2 leads to
+# - Android: versionName = 1.0.1, versionCode = 2 (must be unique per project)
+# - iOS: CFBundleShortVersionString = 1.0.1, CFBundleVersion = 2
+# -----------------------------------------------------------------------------
+#
+# Simple case: one flavor, release both Android and iOS
+# -> Update the versionName
+# -> Increment the versionCode, then the PlayStore will never reject any build
+# -> Publish Android and/or iOS
+#
+# Advanced case: several flavors (example fertitest)
+# -> Do not rely on pubspec.yaml
+# -> Hardcode versions in native gradle and xcproj files and maintain them manually
+#
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=3.0.0"
+
+# Use this section for all the dependencies used by the application itself
+dependencies:
+  # Flutter
+  flutter:
+    sdk: flutter
+
+  # FIREBASE
+  # https://firebase.flutter.dev/docs/null-safety
+  firebase_auth: ^5.1.0
+  firebase_core: ^3.1.0
+  firebase_crashlytics: ^4.0.1
+  firebase_remote_config: ^5.0.1
+  firebase_analytics: ^11.0.1
+
+  # NAVIGATOR
+  go_router: ^14.2.0
+
+  # DATA ACCESS
+  # generic
+  get_it: ^7.6.4
+  path_provider: ^2.1.1
+  flutter_riverpod: ^2.4.4
+  shared_preferences: ^2.2.2
+  # assets/files
+  file_sizes: ^1.0.6
+  flutter_image_compress: ^2.0.4
+  flutter_svg: ^2.0.7
+  # network
+  connectivity_plus: ^6.0.3
+  http: ^1.1.0
+  url_launcher: ^6.1.14
+  # localization
+  intl: ^0.19.0
+  flutter_localizations:
+    sdk: flutter
+
+  # DEV TOOLS
+  # generic
+  collection: ^1.17.2
+  logger: ^2.0.2+1
+  kotlin_flavor: ^0.2.0
+  package_info_plus: ^8.0.0
+  device_info_plus: ^10.1.0
+  # char/string/comparison
+  charcode: ^1.3.1
+  diacritic: ^0.1.4
+  email_validator: ^2.1.17
+  equatable: ^2.0.5
+  libphonenumber: ^2.0.2
+
+  # WIDGETS
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # runner
+  build_runner: ^2.4.6
+  json_annotation: ^4.8.1
+  json_serializable: ^6.7.1
+
+  # linter
+  very_good_analysis: ^5.1.0
+
+  # It belongs in dev_dependencies because it is a command line tool.
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.2
+  r_flutter: ^0.9.0
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path_android: "lib/assets/app_icon/app_icon_android.png"
+  adaptive_icon_background: "lib/assets/app_icon/android_adaptive_background.png"
+  adaptive_icon_foreground: "lib/assets/app_icon/android_adaptive_foreground.png"
+  image_path_ios: "lib/assets/app_icon/app_icon_ios.png"
+
+flutter_native_splash:
+  image: "lib/assets/splash/logo.png"
+  color: "#008a8e"
+
+# The following section is specific to Flutter.
+flutter:
+  uses-material-design: true
+
+  assets:
+    - lib/assets/
+    - lib/assets/fonts/
+    - lib/assets/images/
+
+  fonts:
+    - family: Regular
+      fonts:
+        - asset: lib/assets/fonts/Oxygen-Regular.ttf
+    - family: Bold
+      fonts:
+        - asset: lib/assets/fonts/Oxygen-Bold.ttf
+    - family: Light
+      fonts:
+        - asset: lib/assets/fonts/Oxygen-Light.ttf
+    - family: Boxicons
+      fonts:
+        - asset: lib/assets/fonts/icomoon.ttf
+          weight: 400
+
+r_flutter:
+  asset_classes:
+    ".svg":
+      import: assets/assetClasses.dart
+      class: SvgFile
+    ".json":
+      import: assets/assetClasses.dart
+      class: JsonFile
+
+flutter_intl:
+  enabled: true
+  main_locale: fr
+

@@ -1,0 +1,19 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude: [
+    build/**, 
+    lib/assets/**, 
+    lib/generated/**,
+    lib/assets.dart,
+    ]
+    
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: true
+    
+linter:
+  rules:
+    public_member_api_docs: false
+    sort_pub_dependencies: false
+    flutter_style_todos: false

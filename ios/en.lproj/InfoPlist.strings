@@ -1,0 +1,17 @@
+/* 
+  InfoPlist.strings
+  Runner
+  
+*/
+NSAppleMusicUsageDescription = "The app does not use this feature";
+NSCalendarsUsageDescription = "The app does not use this feature";
+NSCameraUsageDescription = "The app does not use this feature";
+NSContactsUsageDescription = "The app does not use this feature";
+NSLocationAlwaysUsageDescription = "The app does not use this feature";
+NSLocationUsageDescription = "The app does not use this feature";
+NSLocationWhenInUseUsageDescription = "The app does not use this feature";
+NSMotionUsageDescription = "The app does not use this feature";
+NSPhotoLibraryAddUsageDescription = "The app does not use this feature";
+NSPhotoLibraryUsageDescription = "The app does not use this feature";
+NSSpeechRecognitionUsageDescription = "The app does not use this feature";
+NSUserTrackingUsageDescription = "The app does not use this feature";

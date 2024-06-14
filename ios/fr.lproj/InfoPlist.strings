@@ -1,0 +1,19 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by JeanChristophe Palyart on 24/03/2021.
+  
+*/
+NSAppleMusicUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSCalendarsUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSCameraUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSContactsUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSLocationAlwaysUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSLocationUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSLocationWhenInUseUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSMotionUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSPhotoLibraryAddUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSPhotoLibraryUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSSpeechRecognitionUsageDescription = "L'application n'utilise pas cette fonctionnalité";
+NSUserTrackingUsageDescription = "L'application n'utilise pas cette fonctionnalité";
