@@ -8,15 +8,16 @@ Future<void> openUrl(BuildContext context, String url) async {
   if (await canLaunchUrlString(url)) {
     await launchUrlString(url);
   } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        backgroundColor: AppColors.blackTwo,
-        content: Text(
-          S.of(context).errorCannotOpenWebsite,
-          style: AppTextStyles.errorLabel.copyWith(color: Colors.white),
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: AppColors.blackTwo,
+          content: Text(
+            S.of(context).errorCannotOpenWebsite,
+            style: AppTextStyles.errorLabel.copyWith(color: Colors.white),
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }
-

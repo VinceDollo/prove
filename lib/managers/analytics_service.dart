@@ -14,7 +14,6 @@ class AnalyticsService {
     await _analytics.logEvent(name: 'sign_in');
   }
 
-  // TODO Set the list of analytics custom events here
   Future<dynamic> oneCustomEvent() async {
     await _analytics.logEvent(name: 'custom_event');
   }

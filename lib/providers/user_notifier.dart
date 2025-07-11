@@ -1,18 +1,26 @@
-import 'package:flutter_starter/model/api/response/customer.dart';
-import 'package:flutter_starter/ws/ws_customer.dart';
+import 'package:flutter_starter/model/api/response/user.dart';
 import 'package:flutter_starter/ws/ws_user.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final userProvider = StateNotifierProvider((ref) => UserNotifier());
+part 'user_notifier.g.dart';
 
-class UserNotifier extends StateNotifier<Customer?> {
-  UserNotifier() : super(null);
-
-  Future<void> logUserIn(String email, String password) async {
-    // ignore: unused_local_variable
-    final result = await login(email, password);
-    if (result != null) state = await getCustomerProfile();
+@Riverpod(keepAlive: true)
+class UserNotifier extends _$UserNotifier {
+  @override
+  Future<User?> build() async {
+    return _fetchUser();
   }
 
-  void logUserOut() => state = null;
+  Future<User?> _fetchUser() async {
+    final res = await fetchUser();
+    if(res.isSuccess && res is User){
+      return res.data! as User;
+    }
+
+    return null;
+  }
+
+  void logUserOut() {
+    state = const AsyncValue.data(null);
+  }
 }

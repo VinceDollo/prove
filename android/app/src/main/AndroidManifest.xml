@@ -1,5 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.vdollo.flutter_starter">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
         android:name="${applicationName}"
         android:label="flutter_mix"
@@ -32,16 +31,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-
-            <!-- [uni_links] Deep link when resetting the customer password -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:scheme="fluttermix"
-                    android:host="fluttermix.com" />
             </intent-filter>
 
         </activity>

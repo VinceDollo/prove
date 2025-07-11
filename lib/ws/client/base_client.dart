@@ -4,12 +4,12 @@ import 'dart:io';
 
 import 'package:file_sizes/file_sizes.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_starter/model/api/response/error_response.dart';
-import 'package:flutter_starter/model/api/response/hydra_error.dart';
+import 'package:flutter_starter/model/api/api_error.dart';
+import 'package:flutter_starter/model/api/api_result.dart';
 import 'package:flutter_starter/utils/app_logger.dart';
+import 'package:flutter_starter/utils/json_decode_on_compute.dart';
 import 'package:flutter_starter/utils/user_agent.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/io_client.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:intl/intl.dart';
 
@@ -24,7 +24,7 @@ class BaseHttpClient extends http.BaseClient {
       '---> ${request.method} ${request.url} \n\n HEADERS ${request.headers}',
     );
 
-    return client.send(request).catchError((error) {
+    return client.send(request).catchError((dynamic error) {
       logger.e('Failed to send ${request.method} ${request.url}: $error');
       throw Exception(error);
     });
@@ -74,59 +74,46 @@ class BaseClient {
     return requestCopy;
   }
 
-  String _encodeIfNeeded(dynamic body) =>
-      body is String ? body : jsonEncode(body);
-
-  /// HEAD
-  Future<dynamic> head(String url, {Map<String, String>? headers}) =>
-      client.head(Uri.parse(url), headers: headers).then(_processResponse);
+  String _encodeIfNeeded(dynamic body) => body is String ? body : jsonEncode(body);
 
   /// GET
-  Future<dynamic> get(String url, {Map<String, String>? headers}) =>
+  Future<ApiResult> get(String url, {Map<String, String>? headers}) =>
       client.get(Uri.parse(url), headers: headers).then(_processResponse);
 
   /// PUT
-  Future<dynamic> put(
+  Future<ApiResult> put(
     String url, {
     Map<String, String>? headers,
     Map<String, dynamic>? body,
   }) =>
-      client
-          .put(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body))
-          .then(_processResponse);
+      client.put(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body)).then(_processResponse);
 
   /// POST
-  Future<dynamic> post(
+  Future<ApiResult> post(
     String url, {
     Map<String, String>? headers,
     Map<String, dynamic>? body,
   }) =>
-      client
-          .post(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body))
-          .then(_processResponse);
+      client.post(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body)).then(_processResponse);
 
   /// PATCH
-  Future<dynamic> patch(
+  Future<ApiResult> patch(
     String url, {
     Map<String, String>? headers,
     Map<String, dynamic>? body,
   }) =>
-      client
-          .patch(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body))
-          .then(_processResponse);
+      client.patch(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body)).then(_processResponse);
 
   /// DELETE
-  Future<dynamic> delete(
+  Future<ApiResult> delete(
     String url, {
     Map<String, String>? headers,
     Map<String, dynamic>? body,
   }) =>
-      client
-          .delete(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body))
-          .then(_processResponse);
+      client.delete(Uri.parse(url), headers: headers, body: _encodeIfNeeded(body)).then(_processResponse);
 
   /// SEND FILES
-  Future<dynamic> sendFiles(
+  Future<ApiResult> sendFiles(
     String url, {
     Map<String, String>? headers,
     Map<String, File>? files,
@@ -134,12 +121,10 @@ class BaseClient {
     final request = http.MultipartRequest('POST', Uri.parse(url));
 
     if (files != null) {
-      await Future.forEach(files.entries,
-          (MapEntry<dynamic, dynamic> entry) async {
+      await Future.forEach(files.entries, (MapEntry<dynamic, dynamic> entry) async {
         final file = entry.value as File;
         final field = entry.key as String;
-        logger
-            .v('Adding field $field - ${FileSize.getSize(file.lengthSync())}');
+        logger.t('Adding field $field - ${FileSize.getSize(file.lengthSync())}');
         request.files.add(
           http.MultipartFile.fromBytes(
             field,
@@ -151,17 +136,13 @@ class BaseClient {
       });
     }
 
-    logger.v('Posting a binary file');
+    logger.t('Posting a binary file');
     return client.send(request).then(_processResponse);
   }
 
   /// PROCESS RESPONSE AND CHECK FOR ERROR
-  Future<dynamic> _processResponse(dynamic response) async {
+  Future<ApiResult> _processResponse(dynamic response) async {
     Map<String, dynamic>? decodedBody;
-
-    if (response.runtimeType == IOStreamedResponse) {
-      response = await http.Response.fromStream(response as IOStreamedResponse);
-    }
 
     if (response.runtimeType == http.Response) {
       final httpResponse = response as http.Response;
@@ -176,31 +157,23 @@ class BaseClient {
       try {
         decodedBody = await compute(jsonDecodeOnCompute, body);
       } catch (e) {
-        // do nothing
+        return ApiResult.error(Exception(decodedBody.toString()));
       }
-      // Check for error
-      if (statusCode < HttpStatus.ok ||
-          statusCode >= HttpStatus.multipleChoices) {
-        if (decodedBody == null) throw Exception(response);
 
-        if (decodedBody[ResponseError.errorKey] != null) {
-          throw ResponseException(ResponseError.fromJson(decodedBody));
+      if (statusCode < HttpStatus.ok || statusCode >= HttpStatus.multipleChoices) {
+        if (decodedBody == null) return ApiResult.error(Exception());
+
+        if (decodedBody['error'] != null) {
+          final apiError = ApiError.fromJson(decodedBody);
+          return ApiResult.error(apiError);
         }
 
-        if (decodedBody['hydra:title'] != null) {
-          throw HydraException(HydraError.fromJson(decodedBody));
-        }
-
-        throw Exception(decodedBody.toString());
+        return ApiResult.error(
+          Exception(decodedBody.toString()),
+        );
       }
     }
 
-    // Success, return response body
-    return decodedBody;
+    return ApiResult.success(decodedBody);
   }
-}
-
-Map<String, dynamic>? jsonDecodeOnCompute(String data) {
-  final result = json.decode(data);
-  return result is Map<String, dynamic> ? result : null;
 }

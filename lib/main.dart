@@ -10,7 +10,6 @@ import 'package:flutter_starter/utils/instance_get_it.dart';
 
 /// main for prod env
 void main() {
-  instanceGetIt.registerSingleton<AppFlavor>(AppFlavor.production);
   commonMain();
 }
 
@@ -19,12 +18,11 @@ void main() {
 Future<void> commonMain() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await Firebase.initializeApp();
+  instanceGetIt.registerSingleton<AppFlavor>(
+    getFlavor(appFlavor ?? 'production'),
+  );
 
-  // if (!kIsWeb) {
-    // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-    // await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-  // }
+  // await Firebase.initializeApp();
 
   // initialize remote config service
   // await initialiseRemoteConfig();

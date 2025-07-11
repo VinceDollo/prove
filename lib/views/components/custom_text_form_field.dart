@@ -97,11 +97,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
               )
             : widget.suffixIcon,
         prefixIcon: widget.prefixIcon,
-        suffixIconColor: AppColors.black.withOpacity(0.6),
+        suffixIconColor: AppColors.black.withValues(alpha:0.6),
         filled: true,
         // fillColor: !widget.enabled
         //     ? AppColors.lightGrey
-        //     : AppColors.lightGrey.withOpacity(0.05),
+        //     : AppColors.lightGrey.withValues(alpha:0.05),
         labelText: widget.labelText,
         errorText: widget.errorText,
         // labelStyle: AppTextStyles.textFromFieldLabel,
@@ -109,7 +109,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            color: AppColors.black.withOpacity(0.05),
+            color: AppColors.black.withValues(alpha:0.05),
             width: 1.5,
           ),
         ),
@@ -122,7 +122,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide(
-            color: AppColors.black.withOpacity(0.2),
+            color: AppColors.black.withValues(alpha:0.2),
             width: 1.5,
           ),
         ),

@@ -8,7 +8,7 @@ final GoRouter router = GoRouter(
   debugLogDiagnostics: true,
   initialLocation: '/${LoginScreen.routeName}',
   redirect: (context, state) {
-    /// TODO
+    return null;
   },
   routes: [
     /// LoginScreen route
@@ -47,7 +47,7 @@ final GoRouter router = GoRouter(
               name: Screen1.routeName,
               path: '/${Screen1.routeName}',
               builder: (context, state) {
-                return Screen1();
+                return const Screen1();
               },
             ),
           ],

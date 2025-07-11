@@ -9,19 +9,19 @@ class AppColors {
   // https://medium.com/py-bits/turn-any-color-to-material-color-for-flutter-d8e8e037a837
   static const Color primary = blueGreen800;
   static Map<int, Color> colorPrimaryCodes = {
-    50: primary.withOpacity(0.1),
-    100: primary.withOpacity(0.2),
-    200: primary.withOpacity(0.3),
-    300: primary.withOpacity(0.4),
-    400: primary.withOpacity(0.5),
-    500: primary.withOpacity(0.6),
-    600: primary.withOpacity(0.7),
-    700: primary.withOpacity(0.8),
-    800: primary.withOpacity(0.9),
+    50: primary.withValues(alpha:0.1),
+    100: primary.withValues(alpha:0.2),
+    200: primary.withValues(alpha:0.3),
+    300: primary.withValues(alpha:0.4),
+    400: primary.withValues(alpha:0.5),
+    500: primary.withValues(alpha:0.6),
+    600: primary.withValues(alpha:0.7),
+    700: primary.withValues(alpha:0.8),
+    800: primary.withValues(alpha:0.9),
     900: primary,
   };
   static MaterialColor primaryColor =
-      MaterialColor(primary.value, colorPrimaryCodes);
+      MaterialColor(primary.toARGB32(), colorPrimaryCodes);
 
   // other colors
   static const Color blueGreen800 = Color(0xFF008a8e);
