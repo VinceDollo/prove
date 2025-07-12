@@ -81,13 +81,13 @@ dev_dependencies:
 flutter_icons:
   android: "ic_launcher"
   ios: true
-  image_path_android: "lib/assets/app_icon/app_icon_android.png"
-  adaptive_icon_background: "lib/assets/app_icon/android_adaptive_background.png"
-  adaptive_icon_foreground: "lib/assets/app_icon/android_adaptive_foreground.png"
-  image_path_ios: "lib/assets/app_icon/app_icon_ios.png"
+  image_path_android: "dev_assets/app_icon/app_icon.png"
+  adaptive_icon_background: "dev_assets/app_icon/android_adaptive_background.png"
+  adaptive_icon_foreground: "dev_assets/app_icon/android_adaptive_foreground.png"
+  image_path_ios: "dev_assets/app_icon/app_icon.png"
 
 flutter_native_splash:
-  image: "lib/assets/splash/logo.png"
+  image: "dev_assets/splash/logo.png"
   color: "#008a8e"
 
 # The following section is specific to Flutter.
