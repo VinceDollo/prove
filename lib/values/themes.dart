@@ -39,10 +39,10 @@ class AppTheme {
       unselectedWidgetColor: Colors.grey,
       fontFamily: Fonts.regular,
       textTheme: lightTextTheme,
-      buttonTheme: ButtonThemeData(
-        padding: AppDimensions.edgeButtonInnerPadding,
-        shape: AppDimensions.buttonRoundedRectangleBorder,
-      ),
+      // buttonTheme: ButtonThemeData(
+      //   padding: AppDimensions.edgeButtonInnerPadding,
+      //   shape: AppDimensions.buttonRoundedRectangleBorder,
+      // ),
       checkboxTheme: CheckboxThemeData(
         checkColor: WidgetStateProperty.all<Color>(Colors.grey),
         fillColor: WidgetStateProperty.all<Color>(Colors.white),

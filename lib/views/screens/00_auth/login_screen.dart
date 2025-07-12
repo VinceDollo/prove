@@ -1,10 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_starter/views/components/custom_button_widget.dart';
 import 'package:flutter_starter/views/components/custom_text_form_field.dart';
 import 'package:flutter_starter/views/components/tap_to_close_keyboard.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
   static const String routeName = 'login';
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  late final TextEditingController emailController;
+  late final TextEditingController passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +39,28 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              const CustomTextFormField(),
+              CustomTextFormField(
+                readOnly: true,
+                controller: emailController,
+                labelText: 'Email',
+                hintText: 'Votre email',
+                keyboardType: TextInputType.emailAddress,
+              ),
               const SizedBox(height: 20),
-              const CustomTextFormField(),
+              CustomTextFormField(
+                controller: passwordController,
+                labelText: 'Mot de passe',
+                hintText: 'Votre mot de passe',
+                isPassword: true,
+              ),
               const SizedBox(height: 50),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Login'),
+              CustomButtonWidget.filled(
+                isLoading: false,
+                onPressed: () {
+                  final email = emailController.text;
+                  final password = passwordController.text;
+                },
+                text: 'Login',
               ),
             ],
           ),
