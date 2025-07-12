@@ -16,17 +16,7 @@ final GoRouter router = GoRouter(
       path: '/${LoginScreen.routeName}',
       builder: (context, state) => const LoginScreen(),
     ),
-
-    // GoRoute(
-    //   path: '/${RemoteConfigBlockingScreen.routeName}',
-    //   builder: (context, state) => const RemoteConfigBlockingScreen(),
-    // ),
-    //
-    // GoRoute(
-    //   path: '/${NotFoundScreen.routeName}',
-    //   builder: (context, state) => const NotFoundScreen(),
-    // ),
-
+    
     StatefulShellRoute.indexedStack(
       builder: (BuildContext context, GoRouterState state, Widget child) {
         return MainScreen(

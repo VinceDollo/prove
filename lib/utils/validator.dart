@@ -39,17 +39,17 @@ String? validateStringIsDecimal(String stringEntered, BuildContext context) {
   return null;
 }
 
-String? validateEmail(String stringEntered, BuildContext context) {
+String? validateEmail(String? stringEntered, BuildContext context) {
   final notEmpty = validateStringNotNullOrEmpty(stringEntered, context);
   if (notEmpty != null) return notEmpty;
-  if (!EmailValidator.validate(stringEntered)) return S.of(context).errorEmail;
+  if (!EmailValidator.validate(stringEntered!)) return S.of(context).errorEmail;
   return null;
 }
 
-String? validatePassword(String stringEntered, BuildContext context) {
+String? validatePassword(String? stringEntered, BuildContext context) {
   final notEmpty = validateStringNotNullOrEmpty(stringEntered, context);
   if (notEmpty != null) return notEmpty;
-  if (stringEntered.length < AppConstants.minPasswordLength) {
+  if (stringEntered!.length < AppConstants.minPasswordLength) {
     return S
         .of(context)
         .errorMinNumberCharacters(AppConstants.minPasswordLength);

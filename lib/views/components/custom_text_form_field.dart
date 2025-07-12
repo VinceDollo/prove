@@ -107,6 +107,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       cursorColor: AppColors.primary,
       obscureText: isPasswordHide,
       decoration: InputDecoration(
+        counterText: '',
         fillColor: widget.enabled ? Colors.grey.withValues(alpha: 0.1) : Colors.grey.shade300,
         prefixIcon: widget.prefixIcon,
         suffixIcon: widget.isPassword
