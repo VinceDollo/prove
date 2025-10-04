@@ -6,20 +6,47 @@ part of 'auth_notifier.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authNotifierHash() => r'136975bf093611a27b095ca627eaf45f44ea2915';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [AuthNotifier].
 @ProviderFor(AuthNotifier)
-final authNotifierProvider =
-    AutoDisposeAsyncNotifierProvider<AuthNotifier, BearerToken?>.internal(
-  AuthNotifier.new,
-  name: r'authNotifierProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$authNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const authProvider = AuthNotifierProvider._();
 
-typedef _$AuthNotifier = AutoDisposeAsyncNotifier<BearerToken?>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class AuthNotifierProvider
+    extends $AsyncNotifierProvider<AuthNotifier, BearerToken?> {
+  const AuthNotifierProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'authProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$authNotifierHash();
+
+  @$internal
+  @override
+  AuthNotifier create() => AuthNotifier();
+}
+
+String _$authNotifierHash() => r'6bb1830c9b9a783f1f06fefa01f0d58382659b0d';
+
+abstract class _$AuthNotifier extends $AsyncNotifier<BearerToken?> {
+  FutureOr<BearerToken?> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<BearerToken?>, BearerToken?>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<BearerToken?>, BearerToken?>,
+        AsyncValue<BearerToken?>,
+        Object?,
+        Object?>;
+    element.handleValue(ref, created);
+  }
+}

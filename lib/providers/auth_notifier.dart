@@ -5,24 +5,33 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_notifier.g.dart';
 
-@Riverpod()
+@riverpod
 class AuthNotifier extends _$AuthNotifier {
   @override
   Future<BearerToken?> build() async {
     return null;
   }
 
-  Future<void> logUserIn({required String email, required String password}) async {
-    state = const AsyncLoading();
+  Future<void> logUserIn({
+    required String email,
+    required String password,
+  }) async {
+    state = const AsyncLoading<BearerToken?>();
+
     await Future<void>.delayed(const Duration(seconds: 3));
-    final res = ApiResult.success(BearerToken(accessToken: 'eeee', refreshToken: ''));
+
+    final res = ApiResult.success(
+      BearerToken(accessToken: 'eeee', refreshToken: ''),
+    );
     // final res = ApiResult.error(Exception());
 
-    // final res = await login(email: 'email', password: 'password');
     if (res.isSuccess && res.data is BearerToken) {
       state = AsyncData(res.data);
     } else {
-      state = AsyncError(res.getErrorMessage('Un erreur est survenue'), StackTrace.current);
+      state = AsyncError<BearerToken?>(
+        res.getErrorMessage('Une erreur est survenue'),
+        StackTrace.current,
+      );
     }
   }
 

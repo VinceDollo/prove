@@ -39,16 +39,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isLoading = ref.watch(authNotifierProvider.select((s) => s.isLoading));
+    final isLoading = ref.watch(authProvider.select((s) => s.isLoading));
 
     ref.listen<AsyncValue<BearerToken?>>(
-      authNotifierProvider,
+      authProvider,
       (previous, next) {
         if (next.hasError) {
           final error = next.error;
           if (error != null) {
             showSnackBar(context, error.toString());
-            ref.read(authNotifierProvider.notifier).clearError();
+            ref.read(authProvider.notifier).clearError();
           }
           return;
         }
@@ -116,7 +116,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     FocusScope.of(context).unfocus();
 
     if (_formKey.currentState?.validate() ?? false) {
-      final authNotifier = ref.read(authNotifierProvider.notifier);
+      final authNotifier = ref.read(authProvider.notifier);
       await authNotifier.logUserIn(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
