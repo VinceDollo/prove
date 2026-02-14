@@ -29,7 +29,7 @@
 .flutter-plugins-dependencies
 
 # Intl related
-/lib/generated/
+/lib/core/generated/
 
 # Generated assets class
 /lib/assets.dart
