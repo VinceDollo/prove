@@ -1,26 +1,6 @@
 import 'dart:async';
-import 'dart:convert';
 
-import 'package:flutter_starter/model/api/response/bearer_token.dart';
-import 'package:flutter_starter/values/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-/// BEARER TOKEN
-Future<void> saveBearerToken(BearerToken bearerToken) {
-  final user = jsonEncode(bearerToken.toJson());
-  return AppSharedPreferences.save<String>(AppConstants.bearerToken, user);
-}
-
-Future<BearerToken?> loadBearerToken() async {
-  return AppSharedPreferences.load<String>(AppConstants.bearerToken).then((jsonString) {
-    if (jsonString == null) return null;
-
-    final jsonMap = jsonDecode(jsonString) as Map<String, dynamic>;
-    return BearerToken.fromJson(jsonMap);
-  });
-}
-
-Future<void> cleanBearerToken() => AppSharedPreferences.save<String>(AppConstants.bearerToken, null);
 
 class AppSharedPreferences {
   static Future<void> save<T>(String key, T? value) async {

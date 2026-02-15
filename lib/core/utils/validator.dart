@@ -1,7 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_starter/generated/l10n.dart';
-import 'package:flutter_starter/values/constants.dart';
+import 'package:flutter_starter/core/generated/l10n.dart';
+import 'package:flutter_starter/core/values/constants.dart';
 
 String? validateStringNotNullOrEmpty(
   String? stringEntered,

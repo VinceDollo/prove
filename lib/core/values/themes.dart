@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/assets.dart';
-import 'package:flutter_starter/values/colors.dart';
-import 'package:flutter_starter/values/dimensions.dart';
-import 'package:flutter_starter/values/styles.dart';
+import 'package:flutter_starter/core/values/colors.dart';
+import 'package:flutter_starter/core/values/dimensions.dart';
+import 'package:flutter_starter/core/values/styles.dart';
 
 class AppTheme {
   static ThemeData lightTheme() {

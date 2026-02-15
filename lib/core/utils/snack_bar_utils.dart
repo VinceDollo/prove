@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/values/styles.dart';
+import 'package:flutter_starter/core/values/styles.dart';
 
 void showSnackBar(
   BuildContext context,

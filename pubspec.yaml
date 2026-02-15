@@ -95,27 +95,27 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/
-    - lib/assets/fonts/
-    - lib/assets/images/
+    - lib/core/assets/
+    - lib/core/assets/fonts/
+    - lib/core/assets/images/
 
   fonts:
     - family: Regular
       fonts:
-        - asset: lib/assets/fonts/Oxygen-Regular.ttf
+        - asset: lib/core/assets/fonts/Oxygen-Regular.ttf
     - family: Bold
       fonts:
-        - asset: lib/assets/fonts/Oxygen-Bold.ttf
+        - asset: lib/core/assets/fonts/Oxygen-Bold.ttf
     - family: Light
       fonts:
-        - asset: lib/assets/fonts/Oxygen-Light.ttf
+        - asset: lib/core/assets/fonts/Oxygen-Light.ttf
     - family: Boxicons
       fonts:
-        - asset: lib/assets/fonts/icomoon.ttf
+        - asset: lib/core/assets/fonts/icomoon.ttf
           weight: 400
 
 flutter_gen:
-  output: lib/assets/assetsGen
+  output: lib/core/assets/assetsGen
 
 flutter_intl:
   enabled: true

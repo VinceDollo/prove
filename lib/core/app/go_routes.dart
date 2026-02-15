@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/views/screens/00_auth/login_screen.dart';
-import 'package:flutter_starter/views/screens/01_home/home_screen.dart';
-import 'package:flutter_starter/views/screens/main_screen.dart';
+import 'package:flutter_starter/features/auth/presentation/screens/login_screen.dart';
+import 'package:flutter_starter/features/home/presentation/screens/home_screen.dart';
+import 'package:flutter_starter/features/home/presentation/screens/main_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
@@ -16,7 +16,7 @@ final GoRouter router = GoRouter(
       path: '/${LoginScreen.routeName}',
       builder: (context, state) => const LoginScreen(),
     ),
-    
+
     StatefulShellRoute.indexedStack(
       builder: (BuildContext context, GoRouterState state, Widget child) {
         return MainScreen(
