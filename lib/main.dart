@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_starter/core/app/app_flavor.dart';
 import 'package:flutter_starter/core/app/flutter_starter_app.dart';
 import 'package:flutter_starter/core/utils/instance_get_it.dart';
 
@@ -17,10 +16,6 @@ void main() {
 /// See main_*.dart for specific configurations files
 Future<void> commonMain() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  instanceGetIt.registerSingleton<AppFlavor>(
-    getFlavor(appFlavor ?? 'production'),
-  );
 
   // await Firebase.initializeApp();
 
@@ -37,7 +32,7 @@ Future<void> commonMain() async {
 
   runApp(
     const ProviderScope(
-      child: FlutterStarterApp(),
+      child: ProveApp(),
     ),
   );
 }

@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.vdollo.flutter_starter"
+        applicationId "com.prove.app"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         multiDexEnabled true

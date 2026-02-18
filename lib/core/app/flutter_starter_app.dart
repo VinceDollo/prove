@@ -6,14 +6,14 @@ import 'package:flutter_starter/core/app/go_routes.dart';
 import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/themes.dart';
 
-class FlutterStarterApp extends StatefulWidget {
-  const FlutterStarterApp({Key? key}) : super(key: key);
+class ProveApp extends StatefulWidget {
+  const ProveApp({super.key});
 
   @override
-  FlutterStarterAppState createState() => FlutterStarterAppState();
+  ProveAppState createState() => ProveAppState();
 }
 
-class FlutterStarterAppState extends State<FlutterStarterApp> with WidgetsBindingObserver {
+class ProveAppState extends State<ProveApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
@@ -55,7 +55,7 @@ class FlutterStarterAppState extends State<FlutterStarterApp> with WidgetsBindin
             DefaultCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          title: "Nom de l'application",
+          title: 'Prove.',
         );
       },
     );
