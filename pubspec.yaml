@@ -87,8 +87,15 @@ flutter_icons:
   image_path_ios: "dev_assets/app_icon/app_icon.png"
 
 flutter_native_splash:
+  image_dark: "dev_assets/splash/logo_dark.png"
   image: "dev_assets/splash/logo.png"
-  color: "#008a8e"
+  color: "#FFFFFF"
+  color_dark: "#000000"
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#000000"
+    image_dark: "dev_assets/splash/logo_android_12_dark.png"
+    image: "dev_assets/splash/logo_android_12.png"
 
 # The following section is specific to Flutter.
 flutter:
