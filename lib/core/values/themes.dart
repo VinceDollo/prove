@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/assets.dart';
+import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
 import 'package:flutter_starter/core/values/colors.dart';
-import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
 
 class AppTheme {
@@ -37,7 +36,7 @@ class AppTheme {
       primarySwatch: AppColors.primaryColor,
       scaffoldBackgroundColor: Colors.white,
       unselectedWidgetColor: Colors.grey,
-      fontFamily: Fonts.regular,
+      fontFamily: FontFamily.regular,
       textTheme: lightTextTheme,
       // buttonTheme: ButtonThemeData(
       //   padding: AppDimensions.edgeButtonInnerPadding,
@@ -51,8 +50,7 @@ class AppTheme {
           borderRadius: BorderRadius.all(Radius.circular(4)),
         ),
       ).copyWith(
-        fillColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }
@@ -63,8 +61,7 @@ class AppTheme {
         }),
       ),
       radioTheme: RadioThemeData(
-        fillColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }
@@ -75,8 +72,7 @@ class AppTheme {
         }),
       ),
       switchTheme: SwitchThemeData(
-        thumbColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        thumbColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }
@@ -85,8 +81,7 @@ class AppTheme {
           }
           return null;
         }),
-        trackColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        trackColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }

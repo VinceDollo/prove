@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/core/generated/l10n.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/colors.dart';
 
 class LoadingDialogWidget extends StatelessWidget {

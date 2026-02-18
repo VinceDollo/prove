@@ -1,6 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_starter/core/generated/l10n.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/constants.dart';
 
 String? validateStringNotNullOrEmpty(
@@ -50,9 +50,7 @@ String? validatePassword(String? stringEntered, BuildContext context) {
   final notEmpty = validateStringNotNullOrEmpty(stringEntered, context);
   if (notEmpty != null) return notEmpty;
   if (stringEntered!.length < AppConstants.minPasswordLength) {
-    return S
-        .of(context)
-        .errorMinNumberCharacters(AppConstants.minPasswordLength);
+    return S.of(context).errorMinNumberCharacters(AppConstants.minPasswordLength);
   }
   return null;
 }

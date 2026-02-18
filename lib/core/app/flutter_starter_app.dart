@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter/core/app/go_routes.dart';
-import 'package:flutter_starter/core/generated/l10n.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/themes.dart';
 
 class FlutterStarterApp extends StatefulWidget {
@@ -13,8 +13,7 @@ class FlutterStarterApp extends StatefulWidget {
   FlutterStarterAppState createState() => FlutterStarterAppState();
 }
 
-class FlutterStarterAppState extends State<FlutterStarterApp>
-    with WidgetsBindingObserver {
+class FlutterStarterAppState extends State<FlutterStarterApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();

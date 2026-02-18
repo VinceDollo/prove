@@ -9,77 +9,94 @@
 // ignore_for_file: type=lint
 // ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart' as _svg;
+import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
 class $LibGen {
   const $LibGen();
 
-  /// Directory path: lib/assets
-  $LibAssetsGen get assets => const $LibAssetsGen();
+  /// Directory path: lib/core
+  $LibCoreGen get core => const $LibCoreGen();
 }
 
-class $LibAssetsGen {
-  const $LibAssetsGen();
+class $LibCoreGen {
+  const $LibCoreGen();
 
-  /// File path: lib/assets/assetClasses.dart
-  String get assetClasses => 'lib/assets/assetClasses.dart';
+  /// Directory path: lib/core/assets
+  $LibCoreAssetsGen get assets => const $LibCoreAssetsGen();
+}
 
-  /// Directory path: lib/assets/fonts
-  $LibAssetsFontsGen get fonts => const $LibAssetsFontsGen();
+class $LibCoreAssetsGen {
+  const $LibCoreAssetsGen();
 
-  /// Directory path: lib/assets/images
-  $LibAssetsImagesGen get images => const $LibAssetsImagesGen();
+  /// File path: lib/core/assets/assetClasses.dart
+  String get assetClasses => 'lib/core/assets/assetClasses.dart';
+
+  /// Directory path: lib/core/assets/fonts
+  $LibCoreAssetsFontsGen get fonts => const $LibCoreAssetsFontsGen();
+
+  /// Directory path: lib/core/assets/images
+  $LibCoreAssetsImagesGen get images => const $LibCoreAssetsImagesGen();
 
   /// List of all assets
   List<String> get values => [assetClasses];
 }
 
-class $LibAssetsFontsGen {
-  const $LibAssetsFontsGen();
+class $LibCoreAssetsFontsGen {
+  const $LibCoreAssetsFontsGen();
 
-  /// File path: lib/assets/fonts/Oxygen-Bold.ttf
-  String get oxygenBold => 'lib/assets/fonts/Oxygen-Bold.ttf';
+  /// File path: lib/core/assets/fonts/Oxygen-Bold.ttf
+  String get oxygenBold => 'lib/core/assets/fonts/Oxygen-Bold.ttf';
 
-  /// File path: lib/assets/fonts/Oxygen-Light.ttf
-  String get oxygenLight => 'lib/assets/fonts/Oxygen-Light.ttf';
+  /// File path: lib/core/assets/fonts/Oxygen-Light.ttf
+  String get oxygenLight => 'lib/core/assets/fonts/Oxygen-Light.ttf';
 
-  /// File path: lib/assets/fonts/Oxygen-Regular.ttf
-  String get oxygenRegular => 'lib/assets/fonts/Oxygen-Regular.ttf';
+  /// File path: lib/core/assets/fonts/Oxygen-Regular.ttf
+  String get oxygenRegular => 'lib/core/assets/fonts/Oxygen-Regular.ttf';
 
-  /// File path: lib/assets/fonts/icomoon.ttf
-  String get icomoon => 'lib/assets/fonts/icomoon.ttf';
+  /// File path: lib/core/assets/fonts/icomoon.ttf
+  String get icomoon => 'lib/core/assets/fonts/icomoon.ttf';
 
   /// List of all assets
   List<String> get values => [oxygenBold, oxygenLight, oxygenRegular, icomoon];
 }
 
-class $LibAssetsImagesGen {
-  const $LibAssetsImagesGen();
+class $LibCoreAssetsImagesGen {
+  const $LibCoreAssetsImagesGen();
 
-  /// File path: lib/assets/images/background.png
+  /// File path: lib/core/assets/images/background.png
   AssetGenImage get background =>
-      const AssetGenImage('lib/assets/images/background.png');
+      const AssetGenImage('lib/core/assets/images/background.png');
 
-  /// File path: lib/assets/images/ic_home.svg
-  String get icHome => 'lib/assets/images/ic_home.svg';
+  /// File path: lib/core/assets/images/ic_home.svg
+  SvgGenImage get icHome =>
+      const SvgGenImage('lib/core/assets/images/ic_home.svg');
 
-  /// File path: lib/assets/images/ic_home_unselected.svg
-  String get icHomeUnselected => 'lib/assets/images/ic_home_unselected.svg';
+  /// File path: lib/core/assets/images/ic_home_unselected.svg
+  SvgGenImage get icHomeUnselected =>
+      const SvgGenImage('lib/core/assets/images/ic_home_unselected.svg');
 
-  /// File path: lib/assets/images/icon_ui_arrow_back.svg
-  String get iconUiArrowBack => 'lib/assets/images/icon_ui_arrow_back.svg';
+  /// File path: lib/core/assets/images/icon_ui_arrow_back.svg
+  SvgGenImage get iconUiArrowBack =>
+      const SvgGenImage('lib/core/assets/images/icon_ui_arrow_back.svg');
 
-  /// File path: lib/assets/images/icon_ui_warning.svg
-  String get iconUiWarning => 'lib/assets/images/icon_ui_warning.svg';
+  /// File path: lib/core/assets/images/icon_ui_warning.svg
+  SvgGenImage get iconUiWarning =>
+      const SvgGenImage('lib/core/assets/images/icon_ui_warning.svg');
 
-  /// File path: lib/assets/images/icons_calendar.svg
-  String get iconsCalendar => 'lib/assets/images/icons_calendar.svg';
+  /// File path: lib/core/assets/images/icons_calendar.svg
+  SvgGenImage get iconsCalendar =>
+      const SvgGenImage('lib/core/assets/images/icons_calendar.svg');
 
-  /// File path: lib/assets/images/icons_eye.svg
-  String get iconsEye => 'lib/assets/images/icons_eye.svg';
+  /// File path: lib/core/assets/images/icons_eye.svg
+  SvgGenImage get iconsEye =>
+      const SvgGenImage('lib/core/assets/images/icons_eye.svg');
 
-  /// File path: lib/assets/images/icons_eye_disabled.svg
-  String get iconsEyeDisabled => 'lib/assets/images/icons_eye_disabled.svg';
+  /// File path: lib/core/assets/images/icons_eye_disabled.svg
+  SvgGenImage get iconsEyeDisabled =>
+      const SvgGenImage('lib/core/assets/images/icons_eye_disabled.svg');
 
   /// List of all assets
   List<dynamic> get values => [
@@ -193,4 +210,83 @@ class AssetGenImageAnimation {
   final bool isAnimation;
   final Duration duration;
   final int frames;
+}
+
+class SvgGenImage {
+  const SvgGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = false;
+
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = true;
+
+  final String _assetName;
+  final Size? size;
+  final Set<String> flavors;
+  final bool _isVecFormat;
+
+  _svg.SvgPicture svg({
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    AlignmentGeometry alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    WidgetBuilder? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    _svg.SvgTheme? theme,
+    _svg.ColorMapper? colorMapper,
+    ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated bool cacheColorFilter = false,
+  }) {
+    final _svg.BytesLoader loader;
+    if (_isVecFormat) {
+      loader = _vg.AssetBytesLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+      );
+    } else {
+      loader = _svg.SvgAssetLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+        theme: theme,
+        colorMapper: colorMapper,
+      );
+    }
+    return _svg.SvgPicture(
+      loader,
+      key: key,
+      matchTextDirection: matchTextDirection,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      placeholderBuilder: placeholderBuilder,
+      semanticsLabel: semanticsLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      colorFilter: colorFilter ??
+          (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
+      clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
 }

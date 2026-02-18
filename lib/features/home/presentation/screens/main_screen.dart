@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/assets.dart';
-import 'package:flutter_starter/core/generated/l10n.dart';
+import 'package:flutter_starter/core/assets/assetsGen/assets.gen.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({
     required this.initialTabsLastPath,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   static const String routeName = 'screen_1';
   final List<String> initialTabsLastPath;
   final Widget child;
@@ -32,33 +32,15 @@ class _MainScreenState extends State<MainScreen> {
               items: [
                 item(
                   0,
-                  Assets.icHome,
-                  Assets.icHomeUnselected,
+                  Assets.lib.core.assets.images.icHome.svg(),
+                  Assets.lib.core.assets.images.icHomeUnselected.svg(),
                   S.of(context).tab1,
                 ),
                 item(
                   1,
-                  Assets.icHome,
-                  Assets.icHomeUnselected,
+                  Assets.lib.core.assets.images.icHome.svg(),
+                  Assets.lib.core.assets.images.icHomeUnselected.svg(),
                   S.of(context).tab2,
-                ),
-                item(
-                  2,
-                  Assets.icHome,
-                  Assets.icHomeUnselected,
-                  S.of(context).tab3,
-                ),
-                item(
-                  3,
-                  Assets.icHome,
-                  Assets.icHomeUnselected,
-                  S.of(context).tab4,
-                ),
-                item(
-                  4,
-                  Assets.icHome,
-                  Assets.icHomeUnselected,
-                  S.of(context).tab5,
                 ),
               ],
               showSelectedLabels: true,

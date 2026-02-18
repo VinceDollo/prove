@@ -1,57 +1,57 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/assets.dart';
+import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
 import 'package:flutter_starter/core/values/colors.dart';
 
 class AppTextStyles {
   static const TextStyle h1 = TextStyle(
     color: AppColors.black,
     fontSize: 40,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle h2 = TextStyle(
     color: AppColors.black,
     fontSize: 40,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle h3 = TextStyle(
     color: AppColors.black,
     fontSize: 22,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle h4 = TextStyle(
     color: AppColors.black,
     fontSize: 18,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle h5 = TextStyle(
     color: AppColors.black,
     fontSize: 16,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle h6 = TextStyle(
     color: AppColors.black,
     fontSize: 18,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle formLabel = TextStyle(
     color: AppColors.black,
     fontSize: 12,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle errorLabel = TextStyle(
     color: AppColors.strawberry,
     fontSize: 12,
-    fontFamily: Fonts.regular,
+    fontFamily: FontFamily.regular,
   );
   static const TextStyle bottomNavigationBarLabelUnselected = TextStyle(
     color: AppColors.blueGray,
     fontSize: 8,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
   static const TextStyle bottomNavigationBarLabelSelected = TextStyle(
     color: AppColors.black,
     fontSize: 8,
-    fontFamily: Fonts.bold,
+    fontFamily: FontFamily.bold,
   );
 }
 
