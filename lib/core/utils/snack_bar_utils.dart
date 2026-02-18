@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_starter/core/values/styles.dart';
 
 void showSnackBar(
   BuildContext context,
@@ -10,9 +9,6 @@ void showSnackBar(
     SnackBar(
       content: Text(
         message,
-        style: AppTextStyles.h5.copyWith(
-          color: Colors.white,
-        ),
       ),
       behavior: SnackBarBehavior.floating,
       showCloseIcon: true,

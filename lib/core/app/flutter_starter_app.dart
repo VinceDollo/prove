@@ -45,8 +45,9 @@ class ProveAppState extends State<ProveApp> with WidgetsBindingObserver {
         return MaterialApp.router(
           routerConfig: router,
           debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme(),
-          themeMode: ThemeMode.light,
+          theme: AppTheme.light(),
+          darkTheme: AppTheme.dark(),
+          themeMode: ThemeMode.system,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
