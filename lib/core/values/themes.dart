@@ -26,70 +26,60 @@ class AppTheme {
 
   // ── Color schemes ─────────────────────────────────────────────────────────
 
+  // Light: black on white
   static const ColorScheme _lightScheme = ColorScheme(
     brightness: Brightness.light,
-    // Brand
-    primary: AppColors.primary,
-    onPrimary: Colors.white,
-    primaryContainer: Color(0xFFB2EBEE),
-    onPrimaryContainer: Color(0xFF002022),
-    // Secondary
-    secondary: AppColors.border,
-    onSecondary: Colors.white,
-    secondaryContainer: AppColors.lightSurfaceVariant,
-    onSecondaryContainer: AppColors.lightOnSurface,
-    // Surfaces
+    primary: AppColors.lightPrimary,
+    onPrimary: AppColors.lightOnPrimary,
+    primaryContainer: AppColors.lightPrimaryContainer,
+    onPrimaryContainer: AppColors.lightOnPrimaryContainer,
+    secondary: AppColors.lightSecondary,
+    onSecondary: AppColors.lightOnSecondary,
+    secondaryContainer: AppColors.lightSecondaryContainer,
+    onSecondaryContainer: AppColors.lightOnSecondaryContainer,
     surface: AppColors.lightSurface,
     onSurface: AppColors.lightOnSurface,
     surfaceContainerHighest: AppColors.lightSurfaceVariant,
-    onSurfaceVariant: AppColors.lightOnSurfaceSecondary,
-    // Outline
-    outline: AppColors.border,
-    outlineVariant: AppColors.lightDivider,
-    // Feedback
+    onSurfaceVariant: AppColors.lightOnSurfaceVariant,
+    outline: AppColors.lightOutline,
+    outlineVariant: AppColors.lightOutlineVariant,
     error: AppColors.error,
-    onError: Colors.white,
-    errorContainer: Color(0xFFFFDAD6),
-    onErrorContainer: Color(0xFF410002),
-    // Misc
+    onError: AppColors.white,
+    errorContainer: AppColors.lightErrorContainer,
+    onErrorContainer: AppColors.lightOnErrorContainer,
     shadow: AppColors.shadow,
-    scrim: Colors.black,
-    inverseSurface: AppColors.lightOnSurface,
-    onInverseSurface: AppColors.lightSurface,
-    inversePrimary: AppColors.primaryVariant,
+    scrim: AppColors.black,
+    inverseSurface: AppColors.lightInverseSurface,
+    onInverseSurface: AppColors.lightOnInverseSurface,
+    inversePrimary: AppColors.lightInversePrimary,
   );
 
+  // Dark: white on black
   static const ColorScheme _darkScheme = ColorScheme(
     brightness: Brightness.dark,
-    // Brand
-    primary: AppColors.primaryVariant,
-    onPrimary: Colors.black,
-    primaryContainer: Color(0xFF00494C),
-    onPrimaryContainer: Color(0xFFA4EDEF),
-    // Secondary
-    secondary: AppColors.darkOnSurfaceSecondary,
-    onSecondary: Colors.black,
-    secondaryContainer: AppColors.darkSurfaceVariant,
-    onSecondaryContainer: AppColors.darkOnSurface,
-    // Surfaces
+    primary: AppColors.darkPrimary,
+    onPrimary: AppColors.darkOnPrimary,
+    primaryContainer: AppColors.darkPrimaryContainer,
+    onPrimaryContainer: AppColors.darkOnPrimaryContainer,
+    secondary: AppColors.darkSecondary,
+    onSecondary: AppColors.darkOnSecondary,
+    secondaryContainer: AppColors.darkSecondaryContainer,
+    onSecondaryContainer: AppColors.darkOnSecondaryContainer,
     surface: AppColors.darkSurface,
     onSurface: AppColors.darkOnSurface,
     surfaceContainerHighest: AppColors.darkSurfaceVariant,
-    onSurfaceVariant: AppColors.darkOnSurfaceSecondary,
-    // Outline
-    outline: AppColors.darkOnSurfaceSecondary,
-    outlineVariant: AppColors.darkDivider,
-    // Feedback
+    onSurfaceVariant: AppColors.darkOnSurfaceVariant,
+    outline: AppColors.darkOutline,
+    outlineVariant: AppColors.darkOutlineVariant,
     error: AppColors.error,
-    onError: Colors.white,
-    errorContainer: Color(0xFF93000A),
-    onErrorContainer: Color(0xFFFFDAD6),
-    // Misc
-    shadow: Colors.black,
-    scrim: Colors.black,
-    inverseSurface: AppColors.darkOnSurface,
-    onInverseSurface: AppColors.darkSurface,
-    inversePrimary: AppColors.primary,
+    onError: AppColors.white,
+    errorContainer: AppColors.darkErrorContainer,
+    onErrorContainer: AppColors.darkOnErrorContainer,
+    shadow: AppColors.shadowStrong,
+    scrim: AppColors.black,
+    inverseSurface: AppColors.darkInverseSurface,
+    onInverseSurface: AppColors.darkOnInverseSurface,
+    inversePrimary: AppColors.darkInversePrimary,
   );
 
   // ── Shared builder ────────────────────────────────────────────────────────
@@ -104,7 +94,7 @@ class AppTheme {
       primaryColor: cs.primary,
       scaffoldBackgroundColor: cs.surface,
       canvasColor: cs.surface,
-      cardColor: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurface,
+      cardColor: isDark ? cs.surfaceContainerHighest : cs.surface,
       dividerColor: cs.outlineVariant,
       fontFamily: FontFamily.regular,
 
@@ -131,7 +121,7 @@ class AppTheme {
 
       // ── Card ──────────────────────────────────────────────────────────────
       cardTheme: CardThemeData(
-        color: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurface,
+        color: isDark ? cs.surfaceContainerHighest : cs.surface,
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
@@ -153,7 +143,7 @@ class AppTheme {
         ),
         errorStyle: AppTextStyles.errorLabel,
         filled: true,
-        fillColor: isDark ? AppColors.darkInputFill : AppColors.lightInputFill,
+        fillColor: cs.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppDimensions.paddingM,
           vertical: AppDimensions.paddingM,
@@ -323,7 +313,7 @@ class AppTheme {
       // ── Dialog ────────────────────────────────────────────────────────────
       dialogTheme: DialogThemeData(
         backgroundColor: cs.surface,
-        surfaceTintColor: Colors.transparent,
+        surfaceTintColor: AppColors.transparent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppDimensions.borderRadius),
         ),
@@ -336,9 +326,9 @@ class AppTheme {
 
       // ── Snackbar ──────────────────────────────────────────────────────────
       snackBarTheme: SnackBarThemeData(
-        backgroundColor: isDark ? AppColors.darkOnSurface : AppColors.lightOnSurface,
+        backgroundColor: cs.inverseSurface,
         contentTextStyle: AppTextStyles.bodyMedium.copyWith(
-          color: isDark ? AppColors.darkSurface : AppColors.lightSurface,
+          color: cs.onInverseSurface,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppDimensions.buttonBorderRadius),

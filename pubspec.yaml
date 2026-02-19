@@ -109,17 +109,25 @@ flutter:
   fonts:
     - family: Regular
       fonts:
-        - asset: lib/core/assets/fonts/Oxygen-Regular.ttf
-    - family: Bold
-      fonts:
-        - asset: lib/core/assets/fonts/Oxygen-Bold.ttf
+        - asset: lib/core/assets/fonts/InriaSerif-Regular.ttf
+        - asset: lib/core/assets/fonts/InriaSerif-Italic.ttf
+          style: italic
     - family: Light
       fonts:
-        - asset: lib/core/assets/fonts/Oxygen-Light.ttf
-    - family: Boxicons
+        - asset: lib/core/assets/fonts/InriaSerif-Light.ttf
+          weight: 300
+        - asset: lib/core/assets/fonts/InriaSerif-LightItalic.ttf
+          weight: 300
+          style: italic
+    - family: Bold
       fonts:
-        - asset: lib/core/assets/fonts/icomoon.ttf
-          weight: 400
+        - asset: lib/core/assets/fonts/InriaSerif-Bold.ttf
+          weight: 700
+        - asset: lib/core/assets/fonts/InriaSerif-BoldItalic.ttf
+          weight: 700
+          style: italic
+
+
 
 flutter_gen:
   output: lib/core/assets/assetsGen

@@ -14,9 +14,6 @@ class FontFamily {
   /// Font family: Bold
   static const String bold = 'Bold';
 
-  /// Font family: Boxicons
-  static const String boxicons = 'Boxicons';
-
   /// Font family: Light
   static const String light = 'Light';
 

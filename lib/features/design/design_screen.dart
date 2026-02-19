@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
 import 'package:flutter_starter/core/values/colors.dart';
 import 'package:flutter_starter/core/values/styles.dart';
+import 'package:flutter_starter/shared/widgets/app_button.dart';
 
-class Screen1 extends StatefulWidget {
-  const Screen1({super.key});
-  static const String routeName = 'screen1';
+class DesignScreen extends StatefulWidget {
+  const DesignScreen({super.key});
+  static const String routeName = 'design';
 
   @override
-  State<Screen1> createState() => _Screen1State();
+  State<DesignScreen> createState() => _DesignScreenState();
 }
 
-class _Screen1State extends State<Screen1> {
+class _DesignScreenState extends State<DesignScreen> {
   bool _checkbox = true;
   bool _toggle = true;
   int _radio = 0;
@@ -135,7 +136,9 @@ class _Screen1State extends State<Screen1> {
               ),
               RadioGroup<int>(
                 groupValue: _radio,
-                onChanged: (v) => setState(() { if (v != null) _radio = v; }),
+                onChanged: (v) => setState(() {
+                  if (v != null) _radio = v;
+                }),
                 child: const Column(
                   children: [
                     RadioListTile<int>(
@@ -204,6 +207,86 @@ class _Screen1State extends State<Screen1> {
                   Chip(label: Text('System')),
                   Chip(label: Text('Preview')),
                 ],
+              ),
+            ],
+          ),
+
+          // ── AppButton ─────────────────────────────────────────────────────
+          _Section(
+            label: 'APP BUTTON — VARIANTS',
+            children: [
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  AppButton(label: 'Filled', onPressed: () {}),
+                  AppButton(label: 'Tonal', onPressed: () {}, variant: AppButtonVariant.tonal),
+                  AppButton(label: 'Outlined', onPressed: () {}, variant: AppButtonVariant.outlined),
+                  AppButton(label: 'Ghost', onPressed: () {}, variant: AppButtonVariant.ghost),
+                  AppButton(label: 'Destructive', onPressed: () {}, variant: AppButtonVariant.destructive),
+                ],
+              ),
+              const SizedBox(height: 12),
+              const Text('Sizes', style: TextStyle(fontSize: 11, color: Colors.grey)),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  AppButton(label: 'Small', onPressed: () {}, size: AppButtonSize.small),
+                  AppButton(label: 'Medium', onPressed: () {}),
+                  AppButton(label: 'Large', onPressed: () {}, size: AppButtonSize.large),
+                ],
+              ),
+              const SizedBox(height: 12),
+              const Text('With icon', style: TextStyle(fontSize: 11, color: Colors.grey)),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  AppButton(
+                    label: 'Leading',
+                    onPressed: () {},
+                    icon: Icons.arrow_forward,
+                  ),
+                  AppButton(
+                    label: 'Trailing',
+                    onPressed: () {},
+                    icon: Icons.arrow_forward,
+                    iconPosition: AppButtonIconPosition.trailing,
+                  ),
+                  AppButton(
+                    label: 'Delete',
+                    onPressed: () {},
+                    variant: AppButtonVariant.destructive,
+                    icon: Icons.delete_outline,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              const Text('States', style: TextStyle(fontSize: 11, color: Colors.grey)),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  AppButton(label: 'Loading', onPressed: () {}, isLoading: true),
+                  const AppButton(label: 'Disabled', onPressed: null),
+                  const AppButton(label: 'Disabled', onPressed: null, variant: AppButtonVariant.outlined),
+                ],
+              ),
+              const SizedBox(height: 12),
+              const Text('Full width', style: TextStyle(fontSize: 11, color: Colors.grey)),
+              const SizedBox(height: 8),
+              AppButton(label: 'Full width', onPressed: () {}, expand: true),
+              const SizedBox(height: 8),
+              AppButton(
+                label: 'Full width + icon',
+                onPressed: () {},
+                icon: Icons.check,
+                expand: true,
               ),
             ],
           ),
@@ -277,7 +360,6 @@ class _Screen1State extends State<Screen1> {
 // ── Section header ────────────────────────────────────────────────────────────
 
 class _Section extends StatelessWidget {
-
   const _Section({required this.label, required this.children});
   final String label;
   final List<Widget> children;
@@ -311,7 +393,6 @@ class _Section extends StatelessWidget {
 // ── Typography row ────────────────────────────────────────────────────────────
 
 class _TypeRow extends StatelessWidget {
-
   const _TypeRow(this.name, this.style);
   final String name;
   final TextStyle? style;
@@ -339,7 +420,6 @@ class _TypeRow extends StatelessWidget {
 // ── Color swatch ──────────────────────────────────────────────────────────────
 
 class _Swatch extends StatelessWidget {
-
   const _Swatch(this.name, this.color, this.textColor, {this.border});
   final String name;
   final Color color;
@@ -373,7 +453,6 @@ class _Swatch extends StatelessWidget {
 // ── Shadow preview ────────────────────────────────────────────────────────────
 
 class _ShadowBox extends StatelessWidget {
-
   const _ShadowBox(this.name, this.shadows, this.cs);
   final String name;
   final List<BoxShadow> shadows;

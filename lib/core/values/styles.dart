@@ -131,9 +131,7 @@ class AppStyle {
   /// Usage: `decoration: AppStyle.fadeGradient(Theme.of(context).colorScheme)`
   static BoxDecoration fadeGradient(ColorScheme colorScheme) {
     final isDark = colorScheme.brightness == Brightness.dark;
-    final transparent = isDark
-        ? AppColors.darkSurfaceTransparent
-        : AppColors.lightSurfaceTransparent;
+    final transparent = isDark ? AppColors.darkSurfaceTransparent : AppColors.lightSurfaceTransparent;
     final surface = colorScheme.surface;
     return BoxDecoration(
       gradient: LinearGradient(
