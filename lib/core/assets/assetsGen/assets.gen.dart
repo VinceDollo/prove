@@ -21,6 +21,16 @@ class $LibGen {
   $LibCoreGen get core => const $LibCoreGen();
 }
 
+class $AssetsDataGen {
+  const $AssetsDataGen();
+
+  /// File path: assets/data/sentences.json
+  String get sentences => 'assets/data/sentences.json';
+
+  /// List of all assets
+  List<String> get values => [sentences];
+}
+
 class $LibCoreGen {
   const $LibCoreGen();
 
@@ -120,6 +130,7 @@ class $LibCoreAssetsImagesGen {
 class Assets {
   const Assets._();
 
+  static const $AssetsDataGen data = $AssetsDataGen();
   static const $LibGen lib = $LibGen();
 }
 

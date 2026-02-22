@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_starter/core/assets/assetsGen/assets.gen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,12 +22,13 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.white));
+
     return Scaffold(
       body: widget.child,
       bottomNavigationBar: Column(

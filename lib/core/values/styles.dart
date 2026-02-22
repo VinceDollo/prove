@@ -2,16 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
 import 'package:flutter_starter/core/values/colors.dart';
 
-/// Pure typography definitions — **no hardcoded colors**.
-///
-/// Colors are injected by AppTheme so every style adapts
-/// automatically to the active [ColorScheme] (light / dark / custom).
-///
-/// M3 type scale used:
-///   displayLarge  36 · headlineLarge  28 · headlineMedium 22
-///   titleLarge    20 · titleMedium    18 · titleSmall     16
-///   bodyLarge     16 · bodyMedium     14 · bodySmall      12
-///   labelLarge    14 · labelMedium    12 · labelSmall     11
 class AppTextStyles {
   AppTextStyles._();
 
