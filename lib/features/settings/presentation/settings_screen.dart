@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
+import 'package:flutter_starter/features/settings/presentation/providers/theme_notifier.dart';
 import 'package:flutter_starter/shared/widgets/version_widget.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
+
   static const String routeName = 'settings';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final height = MediaQuery.sizeOf(context).height;
     final cs = Theme.of(context).colorScheme;
+    final currentMode = ref.watch(themeModeProvider);
 
     return Scaffold(
       body: SafeArea(
@@ -43,26 +47,20 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'System.',
-                    style: AppTextStyles.titleMedium.copyWith(
-                      color: cs.onSurfaceVariant,
-                      letterSpacing: 2,
-                    ),
+                  _ThemeOption(
+                    label: 'System.',
+                    isSelected: currentMode == ThemeMode.system,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.system,
                   ),
-                  Text(
-                    'Light.',
-                    style: AppTextStyles.titleMedium.copyWith(
-                      color: cs.onSurfaceVariant,
-                      letterSpacing: 2,
-                    ),
+                  _ThemeOption(
+                    label: 'Light.',
+                    isSelected: currentMode == ThemeMode.light,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.light,
                   ),
-                  Text(
-                    'Dark.',
-                    style: AppTextStyles.titleMedium.copyWith(
-                      color: cs.onSurfaceVariant,
-                      letterSpacing: 2,
-                    ),
+                  _ThemeOption(
+                    label: 'Dark.',
+                    isSelected: currentMode == ThemeMode.dark,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.dark,
                   ),
                 ],
               ),
@@ -88,7 +86,7 @@ class SettingsScreen extends StatelessWidget {
                   Switch(
                     value: false,
                     onChanged: (bool value) {},
-                  )
+                  ),
                 ],
               ),
               const SizedBox(height: AppDimensions.paddingXL),
@@ -122,6 +120,46 @@ class SettingsScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _ThemeOption extends StatelessWidget {
+  const _ThemeOption({
+    required this.label,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            label,
+            style: AppTextStyles.titleMedium.copyWith(
+              color: isSelected ? cs.onSurface : cs.onSurfaceVariant,
+              letterSpacing: 2,
+            ),
+          ),
+          if (isSelected)
+            Container(
+              height: 3,
+              width: 40,
+              color: cs.onSurface,
+            ),
+        ],
       ),
     );
   }
