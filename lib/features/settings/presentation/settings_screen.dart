@@ -28,14 +28,14 @@ class SettingsScreen extends ConsumerWidget {
                   padding: EdgeInsets.only(top: height / 20),
                   child: Text(
                     'Prove.',
-                    style: AppTextStyles.labelLarge.copyWith(
+                    style: AppTextStyles.bodyLarge.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 2,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: AppDimensions.paddingXL),
+              const SizedBox(height: AppDimensions.paddingXXL),
               Text(
                 'Theme.',
                 style: AppTextStyles.bodyLarge.copyWith(
@@ -64,7 +64,7 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: AppDimensions.paddingXL),
+              const SizedBox(height: AppDimensions.paddingXXL),
               Text(
                 'Notification.',
                 style: AppTextStyles.bodyLarge.copyWith(
@@ -89,7 +89,7 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: AppDimensions.paddingXL),
+              const SizedBox(height: AppDimensions.paddingXXL),
               Text(
                 'CGU.',
                 style: AppTextStyles.bodyMedium.copyWith(

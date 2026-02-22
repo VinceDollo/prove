@@ -12,11 +12,11 @@ class SentenceNotifier extends _$SentenceNotifier {
     return fetchSentence();
   }
 
-  late final GetSentenceOfDayUseCase _getSentenceOfDay;
+  late final GetSentenceOfDayUseCase? _getSentenceOfDay;
 
   Future<SentenceEntity?> fetchSentence() async {
-    _getSentenceOfDay = instanceGetIt<GetSentenceOfDayUseCase>();
-    final res = await _getSentenceOfDay.call();
+    _getSentenceOfDay ??= instanceGetIt<GetSentenceOfDayUseCase>();
+    final res = await _getSentenceOfDay!.call();
     if (res.isSuccess && res.data is SentenceEntity) {
       state = AsyncValue.data(res.data);
       return res.data!;

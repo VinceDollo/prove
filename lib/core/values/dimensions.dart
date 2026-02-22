@@ -1,6 +1,4 @@
-
 class AppDimensions {
-
   /// RADIUS
   static const double buttonBorderRadius = 8;
   static const double borderRadius = 20;
@@ -11,4 +9,5 @@ class AppDimensions {
   static const double paddingL = 24;
   static const double paddingXL = 32;
 
+  static const double paddingXXL = 64;
 }

@@ -23,8 +23,10 @@ class HomeScreen extends ConsumerWidget {
     }
 
     if (sentence.hasError) {
-      return const Center(
-        child: Text("Error"),
+      return Center(
+        child: ErrorRetryWidget(
+          onClickRetry: () => ref.invalidate(sentenceProvider),
+        ),
       );
     }
 
@@ -44,7 +46,7 @@ class HomeScreen extends ConsumerWidget {
                   padding: EdgeInsets.only(top: height / 20),
                   child: Text(
                     'Prove.',
-                    style: AppTextStyles.labelLarge.copyWith(
+                    style: AppTextStyles.bodyLarge.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 2,
                     ),
@@ -94,6 +96,37 @@ class HomeScreen extends ConsumerWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ErrorRetryWidget extends StatelessWidget {
+  const ErrorRetryWidget({
+    required VoidCallback onClickRetry,
+    super.key,
+  }) : _onClickRetry = onClickRetry;
+
+  final VoidCallback _onClickRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppDimensions.paddingM,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text(
+            "Une erreur est survenue lors de la récupération de la phrase du jour",
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: AppDimensions.paddingM,
+          ),
+          OutlinedButton(onPressed: _onClickRetry, child: const Text('Réessayer')),
+        ],
       ),
     );
   }
