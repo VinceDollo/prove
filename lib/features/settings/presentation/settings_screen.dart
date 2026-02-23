@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
 import 'package:flutter_starter/features/settings/presentation/providers/theme_notifier.dart';
@@ -12,6 +13,7 @@ class SettingsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final s = S.of(context);
     final height = MediaQuery.sizeOf(context).height;
     final cs = Theme.of(context).colorScheme;
     final currentMode = ref.watch(themeModeProvider);
@@ -27,7 +29,7 @@ class SettingsScreen extends ConsumerWidget {
                 child: Padding(
                   padding: EdgeInsets.only(top: height / 20),
                   child: Text(
-                    'Prove.',
+                    s.appName,
                     style: AppTextStyles.bodyLarge.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 2,
@@ -37,7 +39,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppDimensions.paddingXXL),
               Text(
-                'Theme.',
+                s.themeSection,
                 style: AppTextStyles.bodyLarge.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,
@@ -49,25 +51,28 @@ class SettingsScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _ThemeOption(
-                    label: 'System.',
+                    label: s.themeSystem,
                     isSelected: currentMode == ThemeMode.system,
-                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.system,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode =
+                        ThemeMode.system,
                   ),
                   _ThemeOption(
-                    label: 'Light.',
+                    label: s.themeLight,
                     isSelected: currentMode == ThemeMode.light,
-                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.light,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode =
+                        ThemeMode.light,
                   ),
                   _ThemeOption(
-                    label: 'Dark.',
+                    label: s.themeDark,
                     isSelected: currentMode == ThemeMode.dark,
-                    onTap: () => ref.read(themeModeProvider.notifier).themeMode = ThemeMode.dark,
+                    onTap: () => ref.read(themeModeProvider.notifier).themeMode =
+                        ThemeMode.dark,
                   ),
                 ],
               ),
               const SizedBox(height: AppDimensions.paddingXXL),
               Text(
-                'Notification.',
+                s.notificationSection,
                 style: AppTextStyles.bodyLarge.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,
@@ -78,7 +83,7 @@ class SettingsScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Push.',
+                    s.notificationPush,
                     style: AppTextStyles.titleMedium.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 2,
@@ -92,7 +97,7 @@ class SettingsScreen extends ConsumerWidget {
               ),
               const SizedBox(height: AppDimensions.paddingXXL),
               Text(
-                'CGU.',
+                s.cgu,
                 style: AppTextStyles.bodyMedium.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,
@@ -100,7 +105,7 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               Text(
-                'Politique de confidentialité.',
+                s.privacyPolicy,
                 style: AppTextStyles.bodyMedium.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,
@@ -108,7 +113,7 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               ),
               Text(
-                'Mentions légales.',
+                s.legalNotice,
                 style: AppTextStyles.bodyMedium.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,

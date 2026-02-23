@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
 import 'package:flutter_starter/features/home/presentation/providers/sentence_notifier.dart';
@@ -14,6 +15,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final s = S.of(context);
     final sentence = ref.watch(sentenceProvider);
 
     if (sentence.isLoading) {
@@ -45,7 +47,7 @@ class HomeScreen extends ConsumerWidget {
                 child: Padding(
                   padding: EdgeInsets.only(top: height / 20),
                   child: Text(
-                    'Prove.',
+                    s.appName,
                     style: AppTextStyles.bodyLarge.copyWith(
                       color: cs.onSurfaceVariant,
                       letterSpacing: 2,
@@ -56,7 +58,7 @@ class HomeScreen extends ConsumerWidget {
               if (sentence.value == null)
                 Align(
                   child: Text(
-                    'No sentence for today.',
+                    s.noSentenceForToday,
                     style: AppTextStyles.bodyMedium.copyWith(color: cs.onSurfaceVariant),
                   ),
                 )
@@ -118,14 +120,14 @@ class ErrorRetryWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            "Une erreur est survenue lors de la récupération de la phrase du jour",
+          Text(
+            S.of(context).errorFetchingSentence,
             textAlign: TextAlign.center,
           ),
           const SizedBox(
             height: AppDimensions.paddingM,
           ),
-          OutlinedButton(onPressed: _onClickRetry, child: const Text('Réessayer')),
+          OutlinedButton(onPressed: _onClickRetry, child: Text(S.of(context).retry)),
         ],
       ),
     );

@@ -54,14 +54,29 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Retourner à l’accueil`
+  /// `Prove.`
+  String get appName {
+    return Intl.message('Prove.', name: 'appName', desc: '', args: []);
+  }
+
+  /// `Retourner à l'accueil`
   String get backToHome {
     return Intl.message(
-      'Retourner à l’accueil',
+      'Retourner à l\'accueil',
       name: 'backToHome',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Commencer`
+  String get begin {
+    return Intl.message('Commencer', name: 'begin', desc: '', args: []);
+  }
+
+  /// `CGU.`
+  String get cgu {
+    return Intl.message('CGU.', name: 'cgu', desc: '', args: []);
   }
 
   /// `Impossible d'ouvrir le site`
@@ -84,6 +99,16 @@ class S {
     );
   }
 
+  /// `Une erreur est survenue lors de la récupération de la phrase du jour`
+  String get errorFetchingSentence {
+    return Intl.message(
+      'Une erreur est survenue lors de la récupération de la phrase du jour',
+      name: 'errorFetchingSentence',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Une erreur est survenue`
   String get errorGeneric {
     return Intl.message(
@@ -94,10 +119,10 @@ class S {
     );
   }
 
-  /// `Une erreur est survenue, veuillez réessayer !`
+  /// `Une erreur est survenue, veuillez réessayer !`
   String get errorGenericRetry {
     return Intl.message(
-      'Une erreur est survenue, veuillez réessayer !',
+      'Une erreur est survenue, veuillez réessayer !',
       name: 'errorGenericRetry',
       desc: '',
       args: [],
@@ -184,11 +209,21 @@ class S {
     );
   }
 
-  /// `Conditions Générales d’Utilisation`
+  /// `Conditions Générales d'Utilisation`
   String get gcu {
     return Intl.message(
-      'Conditions Générales d’Utilisation',
+      'Conditions Générales d\'Utilisation',
       name: 'gcu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mentions légales.`
+  String get legalNotice {
+    return Intl.message(
+      'Mentions légales.',
+      name: 'legalNotice',
       desc: '',
       args: [],
     );
@@ -204,6 +239,21 @@ class S {
     );
   }
 
+  /// `Suivant`
+  String get next {
+    return Intl.message('Suivant', name: 'next', desc: '', args: []);
+  }
+
+  /// `Pas de phrase pour aujourd'hui.`
+  String get noSentenceForToday {
+    return Intl.message(
+      'Pas de phrase pour aujourd\'hui.',
+      name: 'noSentenceForToday',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `La page que vous demandez est introuvable.`
   String get notFoundSubTitle {
     return Intl.message(
@@ -214,14 +264,74 @@ class S {
     );
   }
 
-  /// `Oups, on s’est perdus !`
+  /// `Oups, on s'est perdus !`
   String get notFoundTitle {
     return Intl.message(
-      'Oups, on s’est perdus !',
+      'Oups, on s\'est perdus !',
       name: 'notFoundTitle',
       desc: '',
       args: [],
     );
+  }
+
+  /// `Push.`
+  String get notificationPush {
+    return Intl.message('Push.', name: 'notificationPush', desc: '', args: []);
+  }
+
+  /// `Notification.`
+  String get notificationSection {
+    return Intl.message(
+      'Notification.',
+      name: 'notificationSection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Every day is a chance to prove yourself.`
+  String get onboardingSentence1 {
+    return Intl.message(
+      'Every day is a chance to prove yourself.',
+      name: 'onboardingSentence1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Small actions, day after day, build who you are.`
+  String get onboardingSentence2 {
+    return Intl.message(
+      'Small actions, day after day, build who you are.',
+      name: 'onboardingSentence2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `One sentence. One day. One step forward.`
+  String get onboardingSentence3 {
+    return Intl.message(
+      'One sentence. One day. One step forward.',
+      name: 'onboardingSentence3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Politique de confidentialité.`
+  String get privacyPolicy {
+    return Intl.message(
+      'Politique de confidentialité.',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Réessayer`
+  String get retry {
+    return Intl.message('Réessayer', name: 'retry', desc: '', args: []);
   }
 
   /// `Onglet 1`
@@ -247,6 +357,41 @@ class S {
   /// `Onglet 5`
   String get tab5 {
     return Intl.message('Onglet 5', name: 'tab5', desc: '', args: []);
+  }
+
+  /// `Design`
+  String get tabDesign {
+    return Intl.message('Design', name: 'tabDesign', desc: '', args: []);
+  }
+
+  /// `Accueil`
+  String get tabHome {
+    return Intl.message('Accueil', name: 'tabHome', desc: '', args: []);
+  }
+
+  /// `Paramètres`
+  String get tabSettings {
+    return Intl.message('Paramètres', name: 'tabSettings', desc: '', args: []);
+  }
+
+  /// `Sombre.`
+  String get themeDark {
+    return Intl.message('Sombre.', name: 'themeDark', desc: '', args: []);
+  }
+
+  /// `Clair.`
+  String get themeLight {
+    return Intl.message('Clair.', name: 'themeLight', desc: '', args: []);
+  }
+
+  /// `Thème.`
+  String get themeSection {
+    return Intl.message('Thème.', name: 'themeSection', desc: '', args: []);
+  }
+
+  /// `Système.`
+  String get themeSystem {
+    return Intl.message('Système.', name: 'themeSystem', desc: '', args: []);
   }
 }
 

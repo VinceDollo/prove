@@ -24,16 +24,24 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "backToHome": MessageLookupByLibrary.simpleMessage("Retourner à l’accueil"),
+    "appName": MessageLookupByLibrary.simpleMessage("Prove."),
+    "backToHome": MessageLookupByLibrary.simpleMessage(
+      "Retourner à l\'accueil",
+    ),
+    "begin": MessageLookupByLibrary.simpleMessage("Commencer"),
+    "cgu": MessageLookupByLibrary.simpleMessage("CGU."),
     "errorCannotOpenWebsite": MessageLookupByLibrary.simpleMessage(
       "Impossible d\'ouvrir le site",
     ),
     "errorEmail": MessageLookupByLibrary.simpleMessage("E-mail incorrect"),
+    "errorFetchingSentence": MessageLookupByLibrary.simpleMessage(
+      "Une erreur est survenue lors de la récupération de la phrase du jour",
+    ),
     "errorGeneric": MessageLookupByLibrary.simpleMessage(
       "Une erreur est survenue",
     ),
     "errorGenericRetry": MessageLookupByLibrary.simpleMessage(
-      "Une erreur est survenue, veuillez réessayer !",
+      "Une erreur est survenue, veuillez réessayer !",
     ),
     "errorMandatory": MessageLookupByLibrary.simpleMessage("Champ obligatoire"),
     "errorMinNumberCharacters": m0,
@@ -56,19 +64,48 @@ class MessageLookup extends MessageLookupByLibrary {
       "Vous devez accepter les conditions générales",
     ),
     "gcu": MessageLookupByLibrary.simpleMessage(
-      "Conditions Générales d’Utilisation",
+      "Conditions Générales d\'Utilisation",
     ),
+    "legalNotice": MessageLookupByLibrary.simpleMessage("Mentions légales."),
     "loading": MessageLookupByLibrary.simpleMessage("Chargement en cours…"),
+    "next": MessageLookupByLibrary.simpleMessage("Suivant"),
+    "noSentenceForToday": MessageLookupByLibrary.simpleMessage(
+      "Pas de phrase pour aujourd\'hui.",
+    ),
     "notFoundSubTitle": MessageLookupByLibrary.simpleMessage(
       "La page que vous demandez est introuvable.",
     ),
     "notFoundTitle": MessageLookupByLibrary.simpleMessage(
-      "Oups, on s’est perdus !",
+      "Oups, on s\'est perdus !",
     ),
+    "notificationPush": MessageLookupByLibrary.simpleMessage("Push."),
+    "notificationSection": MessageLookupByLibrary.simpleMessage(
+      "Notification.",
+    ),
+    "onboardingSentence1": MessageLookupByLibrary.simpleMessage(
+      "Every day is a chance to prove yourself.",
+    ),
+    "onboardingSentence2": MessageLookupByLibrary.simpleMessage(
+      "Small actions, day after day, build who you are.",
+    ),
+    "onboardingSentence3": MessageLookupByLibrary.simpleMessage(
+      "One sentence. One day. One step forward.",
+    ),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage(
+      "Politique de confidentialité.",
+    ),
+    "retry": MessageLookupByLibrary.simpleMessage("Réessayer"),
     "tab1": MessageLookupByLibrary.simpleMessage("Onglet 1"),
     "tab2": MessageLookupByLibrary.simpleMessage("Onglet 2"),
     "tab3": MessageLookupByLibrary.simpleMessage("Onglet 3"),
     "tab4": MessageLookupByLibrary.simpleMessage("Onglet 4"),
     "tab5": MessageLookupByLibrary.simpleMessage("Onglet 5"),
+    "tabDesign": MessageLookupByLibrary.simpleMessage("Design"),
+    "tabHome": MessageLookupByLibrary.simpleMessage("Accueil"),
+    "tabSettings": MessageLookupByLibrary.simpleMessage("Paramètres"),
+    "themeDark": MessageLookupByLibrary.simpleMessage("Sombre."),
+    "themeLight": MessageLookupByLibrary.simpleMessage("Clair."),
+    "themeSection": MessageLookupByLibrary.simpleMessage("Thème."),
+    "themeSystem": MessageLookupByLibrary.simpleMessage("Système."),
   };
 }

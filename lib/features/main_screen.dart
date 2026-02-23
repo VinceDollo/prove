@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/assets/assetsGen/assets.gen.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class MainScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     final cs = Theme.of(context).colorScheme;
     final selectedFilter = ColorFilter.mode(cs.primary, BlendMode.srcIn);
     final unselectedFilter = ColorFilter.mode(cs.onSurfaceVariant, BlendMode.srcIn);
@@ -39,19 +41,19 @@ class _MainScreenState extends State<MainScreen> {
                   0,
                   Assets.lib.core.assets.images.homeSolid.svg(colorFilter: selectedFilter),
                   Assets.lib.core.assets.images.homeOutline.svg(colorFilter: unselectedFilter),
-                  'Home',
+                  s.tabHome,
                 ),
                 _item(
                   1,
                   Assets.lib.core.assets.images.settingSolid.svg(colorFilter: selectedFilter),
                   Assets.lib.core.assets.images.settingOutline.svg(colorFilter: unselectedFilter),
-                  'Settings',
+                  s.tabSettings,
                 ),
                 _item(
                   2,
                   Assets.lib.core.assets.images.homeSolid.svg(colorFilter: selectedFilter),
                   Assets.lib.core.assets.images.homeOutline.svg(colorFilter: unselectedFilter),
-                  'Design',
+                  s.tabDesign,
                 ),
               ],
               showSelectedLabels: true,

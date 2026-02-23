@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_starter/core/assets/assetsGen/fonts.gen.dart';
+import 'package:flutter_starter/core/localization/generated/l10n.dart';
 import 'package:flutter_starter/core/utils/instance_get_it.dart';
 import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
@@ -21,11 +22,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late final PageController _pageController;
   int _currentPage = 0;
 
-  static const _sentences = [
-    'Every day is a chance to prove yourself.',
-    'Small actions, day after day, build who you are.',
-    'One sentence. One day. One step forward.',
-  ];
+  static const int _pageCount = 3;
 
   @override
   void initState() {
@@ -40,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _next() {
-    if (_currentPage < _sentences.length - 1) {
+    if (_currentPage < _pageCount - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
@@ -57,11 +54,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-
     final cs = Theme.of(context).colorScheme;
-    final isLast = _currentPage == _sentences.length - 1;
+    final isLast = _currentPage == _pageCount - 1;
+
+    final sentences = [
+      s.onboardingSentence1,
+      s.onboardingSentence2,
+      s.onboardingSentence3,
+    ];
 
     return Scaffold(
       body: SafeArea(
@@ -70,7 +73,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Padding(
               padding: EdgeInsets.only(top: height / 20),
               child: Text(
-                'Prove.',
+                s.appName,
                 style: AppTextStyles.labelLarge.copyWith(
                   color: cs.onSurfaceVariant,
                   letterSpacing: 2,
@@ -80,19 +83,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
-                itemCount: _sentences.length,
+                itemCount: _pageCount,
                 onPageChanged: (index) => setState(() => _currentPage = index),
-                itemBuilder: (_, index) => _OnboardingPage(sentence: _sentences[index]),
+                itemBuilder: (_, index) =>
+                    _OnboardingPage(sentence: sentences[index]),
               ),
             ),
-            _DotIndicator(
-              count: _sentences.length,
-              current: _currentPage,
-            ),
+            _DotIndicator(count: _pageCount, current: _currentPage),
             const SizedBox(height: AppDimensions.paddingL),
             AppButton(
               width: width / 2,
-              label: isLast ? 'Begin' : 'Next',
+              label: isLast ? s.begin : s.next,
               onPressed: _next,
               variant: AppButtonVariant.outlined,
             ),
