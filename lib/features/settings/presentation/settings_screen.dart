@@ -44,6 +44,7 @@ class SettingsScreen extends ConsumerWidget {
                   fontStyle: FontStyle.italic,
                 ),
               ),
+              const SizedBox(height: AppDimensions.paddingS),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

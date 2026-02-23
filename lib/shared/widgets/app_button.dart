@@ -3,7 +3,9 @@ import 'package:flutter_starter/core/values/dimensions.dart';
 import 'package:flutter_starter/core/values/styles.dart';
 
 enum AppButtonVariant { filled, tonal, outlined, ghost, destructive }
+
 enum AppButtonSize { small, medium, large }
+
 enum AppButtonIconPosition { leading, trailing }
 
 class AppButton extends StatelessWidget {
@@ -17,6 +19,7 @@ class AppButton extends StatelessWidget {
     this.iconPosition = AppButtonIconPosition.leading,
     this.isLoading = false,
     this.expand = false,
+    this.width,
   });
 
   final String label;
@@ -27,6 +30,7 @@ class AppButton extends StatelessWidget {
   final AppButtonIconPosition iconPosition;
   final bool isLoading;
   final bool expand;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -48,24 +52,33 @@ class AppButton extends StatelessWidget {
     } else {
       switch (variant) {
         case AppButtonVariant.filled:
-          bg = cs.primary; fg = cs.onPrimary;
+          bg = cs.primary;
+          fg = cs.onPrimary;
         case AppButtonVariant.tonal:
-          bg = cs.primaryContainer; fg = cs.onPrimaryContainer;
+          bg = cs.primaryContainer;
+          fg = cs.onPrimaryContainer;
         case AppButtonVariant.outlined:
-          bg = Colors.transparent; fg = cs.primary;
+          bg = Colors.transparent;
+          fg = cs.primary;
           border = BorderSide(color: cs.outline);
         case AppButtonVariant.ghost:
-          bg = Colors.transparent; fg = cs.primary;
+          bg = Colors.transparent;
+          fg = cs.primary;
         case AppButtonVariant.destructive:
-          bg = cs.error; fg = cs.onError;
+          bg = cs.error;
+          fg = cs.onError;
       }
     }
 
     // ── Size ──────────────────────────────────────────────────────────────────
     final (EdgeInsets padding, TextStyle textStyle, double iconSize) = switch (size) {
-      AppButtonSize.small  => (const EdgeInsets.symmetric(horizontal: 12, vertical: 8),  AppTextStyles.labelMedium, 16.0),
-      AppButtonSize.medium => (const EdgeInsets.symmetric(horizontal: 20, vertical: 13), AppTextStyles.labelLarge,  18.0),
-      AppButtonSize.large  => (const EdgeInsets.symmetric(horizontal: 24, vertical: 17), AppTextStyles.labelLarge,  20.0),
+      AppButtonSize.small => (const EdgeInsets.symmetric(horizontal: 12, vertical: 8), AppTextStyles.labelMedium, 16.0),
+      AppButtonSize.medium => (
+          const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
+          AppTextStyles.labelLarge,
+          18.0
+        ),
+      AppButtonSize.large => (const EdgeInsets.symmetric(horizontal: 24, vertical: 17), AppTextStyles.labelLarge, 20.0),
     };
 
     // ── Content ───────────────────────────────────────────────────────────────
@@ -86,7 +99,8 @@ class AppButton extends StatelessWidget {
             : [text, const SizedBox(width: 8), iconWidget],
       );
     } else {
-      content = Text(label, style: textStyle.copyWith(color: fg), maxLines: 1, overflow: TextOverflow.ellipsis);
+      content = Center(
+          child: Text(label, style: textStyle.copyWith(color: fg), maxLines: 1, overflow: TextOverflow.ellipsis));
     }
 
     // ── Button ────────────────────────────────────────────────────────────────
@@ -107,6 +121,10 @@ class AppButton extends StatelessWidget {
       ),
     );
 
-    return expand ? SizedBox(width: double.infinity, child: button) : button;
+    return expand
+        ? SizedBox(width: double.infinity, child: button)
+        : width != null
+            ? SizedBox(width: width, child: button)
+            : button;
   }
 }
