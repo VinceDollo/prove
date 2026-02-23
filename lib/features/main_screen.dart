@@ -8,6 +8,7 @@ class MainScreen extends StatefulWidget {
     required this.child,
     super.key,
   });
+
   static const String routeName = 'screen_1';
   final List<String> initialTabsLastPath;
   final Widget child;
@@ -20,12 +21,11 @@ class _MainScreenState extends State<MainScreen> {
   int activeIndex = 0;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final cs = Theme.of(context).colorScheme;
+    final selectedFilter = ColorFilter.mode(cs.primary, BlendMode.srcIn);
+    final unselectedFilter = ColorFilter.mode(cs.onSurfaceVariant, BlendMode.srcIn);
+
     return Scaffold(
       body: widget.child,
       bottomNavigationBar: Column(
@@ -35,22 +35,22 @@ class _MainScreenState extends State<MainScreen> {
           Visibility(
             child: BottomNavigationBar(
               items: [
-                item(
+                _item(
                   0,
-                  Assets.lib.core.assets.images.homeSolid.svg(),
-                  Assets.lib.core.assets.images.homeOutline.svg(),
+                  Assets.lib.core.assets.images.homeSolid.svg(colorFilter: selectedFilter),
+                  Assets.lib.core.assets.images.homeOutline.svg(colorFilter: unselectedFilter),
                   'Home',
                 ),
-                item(
+                _item(
                   1,
-                  Assets.lib.core.assets.images.settingSolid.svg(),
-                  Assets.lib.core.assets.images.settingOutline.svg(),
+                  Assets.lib.core.assets.images.settingSolid.svg(colorFilter: selectedFilter),
+                  Assets.lib.core.assets.images.settingOutline.svg(colorFilter: unselectedFilter),
                   'Settings',
                 ),
-                item(
+                _item(
                   2,
-                  Assets.lib.core.assets.images.homeSolid.svg(),
-                  Assets.lib.core.assets.images.homeOutline.svg(),
+                  Assets.lib.core.assets.images.homeSolid.svg(colorFilter: selectedFilter),
+                  Assets.lib.core.assets.images.homeOutline.svg(colorFilter: unselectedFilter),
                   'Design',
                 ),
               ],
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  BottomNavigationBarItem item(
+  BottomNavigationBarItem _item(
     int index,
     Widget asset,
     Widget assetUnselected,

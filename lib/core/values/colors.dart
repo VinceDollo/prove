@@ -44,18 +44,18 @@ class AppColors {
 
   static const Color darkPrimary              = white;
   static const Color darkOnPrimary            = black;
-  static const Color darkPrimaryContainer     = Color(0xFF1A1A1A);
+  static const Color darkPrimaryContainer     = Color(0xFF2A2A2A);
   static const Color darkOnPrimaryContainer   = white;
   static const Color darkSecondary            = Color(0xFFAAAAAA);
   static const Color darkOnSecondary          = black;
-  static const Color darkSecondaryContainer   = Color(0xFF1F1F1F);
+  static const Color darkSecondaryContainer   = Color(0xFF252525);
   static const Color darkOnSecondaryContainer = white;
-  static const Color darkSurface              = black;
+  static const Color darkSurface              = Color(0xFF121212);
   static const Color darkOnSurface            = white;
-  static const Color darkSurfaceVariant       = Color(0xFF1A1A1A);
+  static const Color darkSurfaceVariant       = Color(0xFF1E1E1E);
   static const Color darkOnSurfaceVariant     = Color(0xFFAAAAAA);
-  static const Color darkOutline              = Color(0xFF666666);
-  static const Color darkOutlineVariant       = Color(0xFF2A2A2A);
+  static const Color darkOutline              = Color(0xFF6E6E6E);
+  static const Color darkOutlineVariant       = Color(0xFF383838);
   static const Color darkErrorContainer       = Color(0xFF93000A);
   static const Color darkOnErrorContainer     = Color(0xFFFFDAD6);
   static const Color darkInverseSurface       = white;
@@ -77,5 +77,5 @@ class AppColors {
   // ── Gradient helpers ──────────────────────────────────────────────────────
 
   static const Color lightSurfaceTransparent = Color(0x00FFFFFF);
-  static const Color darkSurfaceTransparent  = Color(0x00000000);
+  static const Color darkSurfaceTransparent  = Color(0x00121212);
 }

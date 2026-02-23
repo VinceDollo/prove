@@ -45,7 +45,13 @@ class _LikeButtonWidgetState extends ConsumerState<LikeButtonWidget> {
       child: isLiked
           ? Assets.lib.core.assets.images.heartSolid
               .svg(colorFilter: const ColorFilter.mode(Colors.red, BlendMode.srcIn), height: 40)
-          : Assets.lib.core.assets.images.heartOutline.svg(height: 40),
+          : Assets.lib.core.assets.images.heartOutline.svg(
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).colorScheme.onSurface,
+                BlendMode.srcIn,
+              ),
+              height: 40,
+            ),
     );
   }
 }
